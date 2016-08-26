@@ -12,7 +12,8 @@ cd dl-globalization-files-from-n-lb-projects
 ./fetch
 ```
 
-> You need to `cd` into the script directory to run `./fetch`
+> You need to `cd` into the `dl-globalization-files-from-n-lb-projects` dir to
+> run `./fetch`
 
 Then look in the `./downloads` directory to file your downloaded files.
 
