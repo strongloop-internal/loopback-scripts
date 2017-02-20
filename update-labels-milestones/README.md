@@ -1,7 +1,7 @@
 ## Installation
 
 ```
-$ git clone git@github.ibm.com:apimesh/oopback-scripts.git
+$ git clone git@github.ibm.com:apimesh/loopback-scripts.git
 $ cd loopback-scripts/update-labels-milestones
 ```
 
