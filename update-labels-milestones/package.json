@@ -1,0 +1,9 @@
+{
+  "name": "apiconnect_tools",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "cross-spawn": "^5.0.1",
+    "curl": "^0.1.4"
+  }
+}
