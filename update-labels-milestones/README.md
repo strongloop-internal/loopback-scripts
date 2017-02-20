@@ -1,22 +1,21 @@
 ## Installation
 
 ```
-$ git clone git@github.ibm.com:apimesh/apiconnect-tools.git
-$ cd apiconnect-tools/update-labels-milestones
+$ git clone git@github.ibm.com:apimesh/oopback-scripts.git
+$ cd loopback-scripts/update-labels-milestones
 ```
 
 ## github-tools.json
 
-The json file has three sections: `labels`, `milestones` and
-`repos'.
+The json file has three sections: `labels`, `milestones` and `repos'.
 
 ## addToolsToGHE.js
 
-The js file which adds labels to github repositories which are in github-tools.json as repos.
+This script adds new labels to  repositories which are listed in github-tools.json as repos.
 
 ## updateToolsToGHE.js
 
-The js file which deletes existing labels and adds new labels to github repositories which are in github-tools.json as repos.
+This script deletes existing labels and adds new labels to github repositories which are listedin github-tools.json as repos.
 
 ### `labels`
 
