@@ -1,7 +1,7 @@
 ## Installation
 
 ```
-$ git clone git@github.ibm.com:apimesh/loopback-scripts.git
+$ git@github.com:strongloop-internal/loopback-scripts.git
 $ cd loopback-scripts/update-labels-milestones
 ```
 
