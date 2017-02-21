@@ -7,7 +7,7 @@ $ cd loopback-scripts/update-labels-milestones
 
 ## github-tools.json
 
-The json file has three sections: `labels`, `milestones` and `repos'.
+The json file has three sections: `labels`, `milestones` and `repos`.
 
 ## addToolsToGHE.js
 
@@ -36,13 +36,13 @@ title is used as the key.
 
 Supported values:
 
- - a string - the due date in the format `yyyy-mm-dd`
+ - a string - the due date in the format `yyyy-mm-ddT00:00:00Z`
  - `false` - the milestone is closed.
 
 ```
 "milestones": {
   "title": "Sprint 1",
-  "due_on": "2017-03-20"
+  "due_on": "2017-03-20T00:00:00Z"
 }
 ```
 
