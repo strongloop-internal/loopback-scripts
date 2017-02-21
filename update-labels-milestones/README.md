@@ -1,7 +1,7 @@
 ## Installation
 
 ```
-$ git@github.com:strongloop-internal/loopback-scripts.git
+$ git clone git@github.com:strongloop-internal/loopback-scripts.git
 $ cd loopback-scripts/update-labels-milestones
 ```
 
