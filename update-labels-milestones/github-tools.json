@@ -1,20 +1,18 @@
 {
-  "labels": [{
-    "name": "test",
-    "color": "eeeeee"
+  "labels": {
+    "test-8": "c5def5",
+    "test-7": "c5def6",
+    "bug":"c5def6",
+    "waiting":"c5def6"
   },
 
-  {
-    "name": "one-test",
-    "color": "eeeeee"
-  }],
+  "milestones": {
+    "Sprint677":"2017-03-20T00:00:00Z",
+    "Sprint 31":"2017-03-20T00:00:00Z",
+    "Sprint499":"2017-04-04T00:00:00Z"
+  },
 
-  "milestones": [{
-    "title": "Sprint 31",
-    "due_on": "2017-03-20"
-  }],
-
-  "repos": {
-     "name": "scrum-asteroid"
-  }
+  "repos": [
+    "scrum-asteroid"
+  ]
 }

@@ -7,15 +7,16 @@ $ cd loopback-scripts/update-labels-milestones
 
 ## github-tools.json
 
-The json file has three sections: `labels`, `milestones` and `repos`.
+The json file has three sections: `labels`, `milestones` and
+`repos'.
 
 ## addToolsToGHE.js
 
-This script adds new labels to  repositories which are listed in github-tools.json as repos.
+The js file which adds labels to github repositories which are in github-tools.json as repos.
 
 ## updateToolsToGHE.js
 
-This script deletes existing labels and adds new labels to github repositories which are listedin github-tools.json as repos.
+The js file which deletes existing labels and adds new labels to github repositories which are in github-tools.json as repos.
 
 ### `labels`
 
@@ -24,8 +25,7 @@ the key, label color is the value.
 
 ```
 "labels": {
-  "name": "test",
-  "value": "eeeee"
+    "test-7": "c5def6",
 }
 ```
 
@@ -36,13 +36,11 @@ title is used as the key.
 
 Supported values:
 
- - a string - the due date in the format `yyyy-mm-ddT00:00:00Z`
- - `false` - the milestone is closed.
+ - a string - the due date(due_on) in the format `yyyy-mm-ddTHH:MM:SSZ`
 
 ```
 "milestones": {
-  "title": "Sprint 1",
-  "due_on": "2017-03-20T00:00:00Z"
+	"Sprint499":"2017-04-04T00:00:00Z"
 }
 ```
 
@@ -52,7 +50,7 @@ An array of all repositories to synchronize.
 
 ```
 "repos": [
-	"name": "scrum-asteroid"
+	"scrum-asteroid"
 ]
 ```
 
