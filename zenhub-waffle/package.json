@@ -1,11 +1,9 @@
 {
-  "name": "apiconnect_tools",
+  "name": "loopback-scripts",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "cross-spawn": "^5.1.0",
     "curl": "^0.1.4",
-    "github": "^9.1.0",
-    "node-zenhub": "^0.1.1"
   }
 }
