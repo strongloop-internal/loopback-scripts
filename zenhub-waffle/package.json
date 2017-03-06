@@ -1,0 +1,9 @@
+{
+  "name": “zenhub-waffle-migration”,
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "cross-spawn": "^5.1.0",
+    "exec": "^0.2.1",
+  }
+}
