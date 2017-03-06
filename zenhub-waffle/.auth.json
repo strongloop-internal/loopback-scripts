@@ -1,0 +1,9 @@
+{
+  "github": {
+    "username": "insert-your-github-username-here",
+    "token": "insert-your-github-token-here"
+  },
+  "zenhub": {
+    "token": "insert-your-zenhub-token-here"
+  }
+}
