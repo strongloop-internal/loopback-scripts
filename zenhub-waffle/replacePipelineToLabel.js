@@ -9,25 +9,20 @@ var credentialsGit = 'username:token';
 getReposInOrgs();
 
 function getReposInOrgs() {
-	var urlGetRepos = 'curl https://api.github.com/orgs/strongloop/repos';
-	var repos;
-
-	repos = exec(urlGetRepos, function (error, stdout, stderr) {
-		var responseRepos = JSON.parse(stdout);
-		for(var obj in responseRepos)
-		{
-			if(responseRepos[obj].id == 9530789)
-			{
-				getIssuesFromRepo(responseRepos[obj].id, responseRepos[obj].name);
-			}
-		}
-		 if (error !== null) {
-          console.log('exec error: ' + error);
-      }
-
-	});
-
+  exec('curl https://api.github.com/orgs/strongloop/repos', function(err, stdout, stderr) {
+    if (err) throw err;
+    
+    var repos = JSON.parse(stdout);
+    repos.forEach(function(repo) {
+	    
+    });
+    for (var repo in response)
+      //if (responseRepos[obj].id == 9530789) // if condition only used for testing
+      getIssuesFromRepo(response[repo].id, response[repo].name);
+    }
+  });
 }
+
 function getIssuesFromRepo(repoId, repoName)
 {
 	var urlGetIssues = 'curl https://api.github.com/repos/strongloop/' + repoName + '/issues';
