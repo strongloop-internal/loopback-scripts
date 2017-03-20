@@ -1,40 +1,47 @@
 # zenhub-to-waffle-migration
 
-The intent of this script is to migrate all issues from zenhub to waffle
-
+The intent of this script is to migrate all issues from ZenHub pipelines to
+Waffle columns.
 
 ## Installation
 
-- Git clone git@github.com:strongloop-internal/loopback-scripts.git
-
-- cd zenhub-to-waffle-migration
-
-- Create .auth.json file having the following content
-	{
-  		"github": {
-    		"username": "Insert-git-username-here",
-    		"token": "Insert-git-token-here"
-  		},
- 		"zenhub": {
-    		"token": "Insert-zenhub-token-here"
-  		}
-	}
-
-
-- To generate git token
-	- Settings > Personal access tokens > Generate New Token
-
-- To generate zenhub token
-	- Go to https://dashboard.zenhub.io/#/settings
-	- Generate New Token
-
-- npm install
-
-- node .
-
+```
+git clone git@github.com:strongloop-internal/loopback-scripts.git
+cd loopback-scripts/zenhub-to-waffle-migration
+npm install
+```
 
 ## Usage
 
+- Create `zenhub-to-waffle-migration/.auth.json` with username and [generated
+access tokens](#generating-access-token)
+- `npm start`
+
+## Generating access tokens
+
+Create `.auth.json`:
+
 ```
-npm start
+{
+  "github": {
+    "username": "your-github-username",
+    "token": "your-github-peronsal-access-token"
+  },
+  "zenhub": {
+    "token": "your-zenhub-token"
+  }
+}
 ```
+
+### How to generate a GitHub personal access token
+
+In the GitHub UI, go to:
+
+- Settings
+- Personal access tokens
+- Generate New Token
+
+### How to generate a ZenHub access token
+
+- Go to https://dashboard.zenhub.io/#/settings
+- Generate New Token
