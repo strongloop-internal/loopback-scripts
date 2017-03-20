@@ -1,7 +1,6 @@
 'use strict';
 
 var config = require('./.auth.json');
-var config = require('./.auth.json');
 var exec = require('child_process').exec;
 var async = require('async');
 

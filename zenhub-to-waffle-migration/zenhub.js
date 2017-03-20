@@ -13,7 +13,7 @@ function getPipelineForIssue(issueNumber, repoId, repoName, cb) {
   exec(`curl -H 'X-Authentication-Token: ${token}' ${url}`, (err, stdout) => {
     if (err) return cb(err);
 
-        console.log(stdout + repoName + issueNumber);
+    console.log(stdout + repoName + issueNumber);
     const res = JSON.parse(stdout);
 
     const pipelineName = res.pipeline.name;

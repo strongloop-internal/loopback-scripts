@@ -26,7 +26,7 @@ function updateAllIssues(repoId, repoName, callback) {
         if (err) throw err;
         var issues = JSON.parse(results);
         async.each(issues, function(issue, cb) {
-          //if ((repoId == 20100867 && issue.number == 38) || (repoId == 20100867 && issue.number == 46) || (repoId == 9530789 && issue.number == 433))
+          // if ((repoId == 20100867 && issue.number == 38) || (repoId == 20100867 && issue.number == 46) || (repoId == 9530789 && issue.number == 433))
           updateIssue(issue.number, repoId, repoName, cb);
         }, callback);
       });
@@ -43,8 +43,8 @@ function updateIssue(issueNo, repoId, repoName, callback) {
     async.waterfall(
       [
         function(cb) {
-          waffle.removeIrrelevantWaffleLabelsFromIssue(issueNo, repoId, repoName,
-          pipeline, cb);
+          waffle.removeIrrelevantWaffleLabelsFromIssue(issueNo, repoId,
+          repoName, pipeline, cb);
         },
         function(cb) {
           github.addWaffleLabelToIssue(issueNo, repoName, pipeline, cb);
