@@ -1,0 +1,21 @@
+{
+  "name": "zenhub-waffle-migration",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index",
+  "scripts": {
+    "lint": "eslint .",
+    "prestart": "npm run lint",
+    "start": "node ."
+  },
+  "dependencies": {
+    "async": "^2.1.5",
+    "async-each": "^1.0.1",
+    "cross-spawn": "^5.1.0",
+    "exec": "^0.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  }
+}
