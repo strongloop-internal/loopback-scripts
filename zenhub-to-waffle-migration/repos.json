@@ -1,6 +1,6 @@
 {
 "repos":
 {	
-      "strongloop/loopback-component-push": "10846437"
+"strongloop/loopback-connector-mongodb": "10975056"
 }
 }
