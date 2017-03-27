@@ -17,6 +17,7 @@ function schedule(opts, cb) {
   var index = 0;
   var depth = 0;
   function processJob() {
+    console.log('batch done');
     var batch = batches[index];
     batch.forEach(function(input) {
       q.push(input);

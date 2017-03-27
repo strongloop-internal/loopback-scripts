@@ -13,21 +13,17 @@ var batch = new Batch;
 var scheduler = require('./scheduler');
 
 /* Fetch All repos from file */
-// updateForAllRepos(function() {
-//   console.log('done');
-// });
-
-function updateForAllRepos(cb) {
-  // var reposJson = reposOfJsonFile.repos;
-  // var repoIds = Object.keys(reposJson);
-  // repoIds.forEach(repoId => {
-  //   updateAllIssues(reposJson[repoId], repoId, cb);
-  // });
-}
-updateAllIssues('10975056', 'strongloop/loopback-connector-mongodb',
-function() {
+updateForAllRepos(function() {
   console.log('done');
 });
+
+function updateForAllRepos(cb) {
+  var reposJson = reposOfJsonFile.repos;
+  var repoIds = Object.keys(reposJson);
+  repoIds.forEach(repoId => {
+    updateAllIssues(reposJson[repoId], repoId, cb);
+  });
+}
 
 /* Loop over all repo issues for update */
 function updateAllIssues(repoId, repoName, callback) {
@@ -46,24 +42,23 @@ function updateAllIssues(repoId, repoName, callback) {
       });
     }, function(err) {
       if (err) throw err;
-      run(totalIssues, callback);
+      run(totalIssues, repoId, repoName, callback);
     });
   });
 }
 
-function run(issues, cb) {
+function run(issues, repoId, repoName, cb) {
   scheduler.schedule({
     inputs: issues,
     job: function(issueNumber, cb) {
-      updateIssue(issueNumber, '10975056',
-        'strongloop/loopback-connector-mongodb', cb);
+      updateIssue(issueNumber, repoId, repoName, cb);
     },
   }, cb);
 }
 
 /* update an issue for a specific repo */
 function updateIssue(issueNo, repoId, repoName, callback) {
- // console.log(repoName, issueNo);
+  console.log(repoName, issueNo);
   zenhub.getPipelineForIssue(issueNo, repoId, repoName,
   function(err, pipeline) {
     if (err) throw err;
