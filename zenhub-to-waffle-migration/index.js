@@ -28,8 +28,6 @@ function updateForAllRepos(cb) {
 /* Loop over all repo issues for update */
 function updateAllIssues(repoId, repoName, callback) {
   pagination.getNumberOfPages(repoName, function(err, pagesToIterate) {
-    console.log(pagesToIterate + 'pages');
-
     var totalIssues = [];
     async.each(pagesToIterate, function(pageNo, cb) {
       github.getAllIssuesOfRepo(pageNo, repoName, function(err, results) {
@@ -58,7 +56,6 @@ function run(issues, repoId, repoName, cb) {
 
 /* update an issue for a specific repo */
 function updateIssue(issueNo, repoId, repoName, callback) {
-  console.log(repoName, issueNo);
   zenhub.getPipelineForIssue(issueNo, repoId, repoName,
   function(err, pipeline) {
     if (err) throw err;
