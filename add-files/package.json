@@ -1,0 +1,18 @@
+{
+  "name": "add-files",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index",
+  "scripts": {
+    "lint": "eslint .",
+    "prestart": "npm run lint",
+    "start": "node ."
+  },
+  "dependencies": {
+    "octokat": "^0.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  }
+}
