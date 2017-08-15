@@ -9,6 +9,16 @@ function Util(creds) {
   this.octo = new Octokat(creds);
 };
 
+/**
+ * Create a branch in a repo
+ *
+ * @param {String} branchName The name of the branch
+ * @param {Object} options Options config to specify owner and repo
+ * @property {String} owner The owner of the repository
+ * @property {String} repoName The name of the repository
+ * @callback {Function} cb The callback function
+ */
+
 Util.prototype.createBranch = function(branchName, options, cb) {
   assert(typeof branchName === 'string');
   assert(typeof options === 'object');
@@ -26,6 +36,15 @@ Util.prototype.createBranch = function(branchName, options, cb) {
   });
 };
 
+/**
+ * Delete a branch in a repo
+ *
+ * @param {String} branchName The name of the branch
+ * @param {Object} options Options config to specify owner and repo
+ * @property {String} owner The owner of the repository
+ * @property {String} repoName The name of the repository
+ * @callback {Function} cb The callback function
+ */
 Util.prototype.deleteBranch = function(branchName, options, cb) {
   assert(typeof branchName === 'string');
   assert(typeof options === 'object');
@@ -41,6 +60,19 @@ Util.prototype.deleteBranch = function(branchName, options, cb) {
   });
 };
 
+/**
+ * Add a file and commit to a branch
+ *
+ * @param {String} file The name of the file
+ * @param {Object} config The required config with commit message and file content
+ * @property {String} message The commit message
+ * @property {String} content The file contents (needs to be base64)
+ * @property {String} branch The branch to commit on to
+ * @param {Object} options Options config to specify owner and repo
+ * @property {String} owner The owner of the repository
+ * @property {String} repoName The name of the repository
+ * @callback {Function} cb The callback function
+ */
 Util.prototype.addFile = function(file, config, options, cb) {
   assert(typeof file === 'string');
   assert(typeof config === 'object');
@@ -61,6 +93,19 @@ Util.prototype.addFile = function(file, config, options, cb) {
   });
 };
 
+/**
+ * Create a pull request
+ *
+ * @param {Object} config Pull request configurations
+ * @property {String} title The title of the pull request
+ * @property {String} body The body message of the pull request
+ * @property {String} head The branch name of the pull request made from
+ * @property {String} base The base branch of the pull request made to
+ * @param {Object} options Options config to specify owner and repo
+ * @property {String} owner The owner of the repository
+ * @property {String} repoName The name of the repository
+ * @callback {Function} cb The callback function
+ */
 Util.prototype.createPR = function(config, options, cb) {
   assert(typeof config === 'object');
   assert(typeof options === 'object');
