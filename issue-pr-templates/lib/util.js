@@ -12,14 +12,14 @@ function Util(creds) {
 /**
  * Create a branch in a repo
  *
+ * @param {String} base The base branch
  * @param {String} branchName The name of the branch
  * @param {Object} options Options config to specify owner and repo
  * @property {String} owner The owner of the repository
  * @property {String} repoName The name of the repository
  * @callback {Function} cb The callback function
  */
-
-Util.prototype.createBranch = function(branchName, options, cb) {
+Util.prototype.createBranch = function(base, branchName, options, cb) {
   assert(typeof branchName === 'string');
   assert(typeof options === 'object');
   assert(typeof cb === 'function');
@@ -28,7 +28,7 @@ Util.prototype.createBranch = function(branchName, options, cb) {
   var repoName = options.repoName;
   var repo = this.octo.repos(owner, repoName);
 
-  repo.commits.fetch({sha: 'master'}, function(err, commits) {
+  repo.commits.fetch({sha: base}, function(err, commits) {
     if (err) cb(err);
     var lastCommit = commits.items[0];
     repo.git.refs.create({'ref': 'refs/heads/' + branchName,
@@ -71,6 +71,7 @@ Util.prototype.deleteBranch = function(branchName, options, cb) {
  * @param {Object} options Options config to specify owner and repo
  * @property {String} owner The owner of the repository
  * @property {String} repoName The name of the repository
+ * @property {String} base The base branch
  * @callback {Function} cb The callback function
  */
 Util.prototype.addFile = function(file, config, options, cb) {
@@ -81,11 +82,15 @@ Util.prototype.addFile = function(file, config, options, cb) {
 
   var owner = options.owner;
   var repoName = options.repoName;
+  var base = options.base;
   var repo = this.octo.repos(owner, repoName);
 
   repo.contents(file).fetch(function(err, info) {
-    if (err) cb(err);
-    config.sha = info.sha;
+    if (err) {
+      config.sha = base;
+    } else {
+      config.sha = info.sha;
+    }
     repo.contents(file).add(config, function(err, info) {
       if (err) cb(err);
       cb(err, info);
