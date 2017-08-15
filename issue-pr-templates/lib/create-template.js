@@ -61,12 +61,16 @@ if (argv.dryRun) {
 async.eachSeries(repos, function(repo, cb) {
   var owner = repo.split('/')[0];
   var repoName = repo.split('/')[1];
+  var base = 'master';
+  if (repoName === 'loopback.io')
+    base = 'gh-pages';
   var options = {
     owner: owner,
     repoName: repoName,
+    base: base,
   };
   console.log('> Staging on repo: %s/%s', owner, repoName);
-  util.createBranch(branchName, options, function(err, result) {
+  util.createBranch(base, branchName, options, function(err, result) {
     if (err) throw err;
     async.eachSeries(files, function(file, cb) {
       var templateType = _.keys(file)[0];
@@ -97,7 +101,7 @@ async.eachSeries(repos, function(repo, cb) {
           title: 'Create Issue and PR Templates',
           body: 'Create Issue and PR Templates',
           head: branchName,
-          base: 'master',
+          base: base,
         };
         util.createPR(prConfig, options, function(err, result) {
           if (err) cb(err);
