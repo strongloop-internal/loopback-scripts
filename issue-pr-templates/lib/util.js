@@ -84,8 +84,11 @@ Util.prototype.addFile = function(file, config, options, cb) {
   var repo = this.octo.repos(owner, repoName);
 
   repo.contents(file).fetch(function(err, info) {
-    if (err) cb(err);
-    config.sha = info.sha;
+    if (err) {
+      config.sha = 'master';
+    } else {
+      config.sha = info.sha;
+    }
     repo.contents(file).add(config, function(err, info) {
       if (err) cb(err);
       cb(err, info);
