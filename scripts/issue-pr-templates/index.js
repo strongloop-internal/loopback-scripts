@@ -27,15 +27,15 @@ var argv = require('yargs')
 var async = require('async');
 var fs = require('fs');
 var path = require('path');
-var repos = require('../repos.json');
+var repos = require('./repos.json');
 var _ = require('lodash');
-var Util = require('./util.js');
+var Util = require(path.resolve(__dirname, '..', '..', 'lib', 'util'));
 
 const ISSUE_TEMPLATE = 'ISSUE_TEMPLATE.md';
 const PR_TEMPLATE = 'PULL_REQUEST_TEMPLATE.md';
 
-var issueFile = path.resolve(__dirname, '..', 'bin', ISSUE_TEMPLATE);
-var prFile = path.resolve(__dirname, '..', 'bin', PR_TEMPLATE);
+var issueFile = path.resolve(__dirname, 'bin', ISSUE_TEMPLATE);
+var prFile = path.resolve(__dirname, 'bin', PR_TEMPLATE);
 
 var branchName = argv.branch || argv.b || 'create-issue-pr-templates';
 var files = [{issue: issueFile}, {pr: prFile}];
