@@ -1,0 +1,18 @@
+{
+  "name": "update-copyrights",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index",
+  "scripts": {
+    "lint": "eslint .",
+    "prestart": "npm run lint",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-loopback": "^13.1.0"
+  }
+}
